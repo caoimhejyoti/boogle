@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const secret = "mysecretsshhhhh";
 const expiration = "2h";
 
-model.exports = {
+module.exports = {
   authMiddlewar: function ({ req }) {
     let token = req.body.token || req.query.token || req.headers.authorization;
 
