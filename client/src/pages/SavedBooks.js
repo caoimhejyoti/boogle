@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,  } from 'react';
 import {
   Container,
   Card,
@@ -6,8 +6,9 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
-
+import { useQuery } from '@apollo/client';
 import { getMe, deleteBook } from '../utils/API';
+import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
@@ -16,6 +17,11 @@ const SavedBooks = () => {
 
   // use this to determine if `useEffect()` hook needs to run again
   const userDataLength = Object.keys(userData).length;
+
+  
+  const {loading, error, data} = useQuery(GET_ME, {
+    
+  })
 
   useEffect(() => {
     const getUserData = async () => {
